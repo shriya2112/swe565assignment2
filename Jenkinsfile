@@ -13,11 +13,11 @@ pipeline {
         // Remove unwanted files
         sh 'rm -rf *.war'
 
-        // Check the directory structure for debugging
-        sh 'ls -l src/main/webapp'
+        // Check the correct directory structure
+        sh 'ls -l student/src/main/webapp'
 
-        // Create the WAR file
-        sh 'jar -cvf student.war -C "src/main/webapp/WEB-INF" .'
+        // Create the WAR file using the correct path
+        sh 'jar -cvf student.war -C "student/src/main/webapp" .'
 
         // Build Docker image
         sh 'docker build -t satluri2/student-survey-app:latest .'
