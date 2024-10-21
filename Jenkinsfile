@@ -1,22 +1,23 @@
 pipeline {
   agent any
   environment {
-    DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
   }
   stages {
     stage('Build') {
       steps {
-        // Check current directory
+        // Check current directory and workspace contents
         sh 'pwd'
-
-        // Check the directory structure for debugging
-        sh 'ls -l student/src/main/webapp'
+        sh 'ls -R'
 
         // Remove unwanted files
         sh 'rm -rf *.war'
 
+        // Check the directory structure for debugging
+        sh 'ls -l src/main/webapp'
+
         // Create the WAR file
-        sh 'jar -cvf student.war -C "student/src/main/webapp" .'
+        sh 'jar -cvf student.war -C "src/main/webapp" .'
 
         // Build Docker image
         sh 'docker build -t satluri2/student-survey-app:latest .'
@@ -45,4 +46,5 @@ pipeline {
     }
   }
 }
+
 
