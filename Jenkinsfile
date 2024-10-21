@@ -17,7 +17,7 @@ pipeline {
         sh 'ls -l src/main/webapp'
 
         // Create the WAR file
-        sh 'jar -cvf student.war -C "src/main/webapp" .'
+        sh 'jar -cvf student.war -C "src/main/webapp/WEB-INF" .'
 
         // Build Docker image
         sh 'docker build -t satluri2/student-survey-app:latest .'
