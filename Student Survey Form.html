@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Survey</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        .survey-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #4CAF50;
+            text-align: center;
+        }
+        .survey-container label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        .survey-container input, 
+        .survey-container select, 
+        .survey-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .survey-container input[type="checkbox"],
+        .survey-container input[type="radio"] {
+            width: auto;
+        }
+        .survey-container textarea {
+            resize: vertical;
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .cancel-btn {
+            background-color: #f44336;
+            color: white;
+            margin-left: 10px;
+        }
+        .submit-btn:hover, .cancel-btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="survey-container">
+        <h1>Student Survey Form</h1>
+        <h2>Help us improve your experience!</h2>
+
+        <form action="/submit-survey" method="post">
+            <!-- Personal Information Section -->
+            <label for="fname">First Name <span>*</span></label>
+            <input type="text" id="fname" name="fname" required>
+
+            <label for="lname">Last Name <span>*</span></label>
+            <input type="text" id="lname" name="lname" required>
+
+            <label for="address">Street Address <span>*</span></label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="city">City <span>*</span></label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="state">State <span>*</span></label>
+            <input type="text" id="state" name="state" required>
+
+            <label for="zip">ZIP Code <span>*</span></label>
+            <input type="text" id="zip" name="zip" required>
+
+            <label for="phone">Phone Number <span>*</span></label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="email">Email Address <span>*</span></label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="survey-date">Date of Survey <span>*</span></label>
+            <input type="date" id="survey-date" name="survey_date" required>
+
+            <!-- Campus Preferences Section -->
+            <h3>What do you like most about our campus?</h3>
+            <label><input type="checkbox" name="like_campus" value="students"> Students</label>
+            <label><input type="checkbox" name="like_campus" value="location"> Location</label>
+            <label><input type="checkbox" name="like_campus" value="campus"> Campus</label>
+            <label><input type="checkbox" name="like_campus" value="atmosphere"> Atmosphere</label>
+            <label><input type="checkbox" name="like_campus" value="dorm_rooms"> Dorm Rooms</label>
+            <label><input type="checkbox" name="like_campus" value="sports"> Sports</label>
+            <label><input type="checkbox" name="like_campus" value="food_court"> Food Court</label>
+            <label><input type="checkbox" name="like_campus" value="faculty"> Faculty</label>
+            <label><input type="checkbox" name="like_campus" value="events"> Events</label>
+
+            <!-- Interest Section -->
+            <h3>How did you become interested in the university?</h3>
+            <label><input type="radio" name="interest" value="friends" required> Friends</label>
+            <label><input type="radio" name="interest" value="television"> Television</label>
+            <label><input type="radio" name="interest" value="internet"> Internet</label>
+            <label><input type="radio" name="interest" value="word_of_mouth" required> Word of Mouth</label>
+            <label><input type="radio" name="interest" value="alumni"> Alumni</label>
+            <label><input type="radio" name="interest" value="relatives"> Relatives</label>
+            <label><input type="radio" name="interest" value="other"> Other</label>
+
+            <!-- Recommendation Section -->
+            <h3>How likely are you to recommend our school?</h3>
+            <select name="recommendation" required>
+                <option value="">Select an option</option>
+                <option value="very_likely">Very Likely</option>
+                <option value="likely">Likely</option>
+                <option value="unlikely">Unlikely</option>
+            </select>
+
+            <!-- Raffle Section -->
+            <label for="raffle">Raffle (Enter 10 comma-separated numbers from 1-100 and get a chance to win a free movie ticket)</label>
+            <input type="text" id="raffle" name="raffle" pattern="^(\d{1,2}(,\d{1,2}){9,})$" required>
+
+            <!-- Additional Comments Section -->
+            <label for="comments">Any additional comments?</label>
+            <textarea id="comments" name="comments" rows="4"></textarea>
+
+            <!-- Submit and Cancel Buttons -->
+            <div class="buttons">
+                <button type="submit" class="submit-btn">Submit</button>
+                <button type="reset" class="cancel-btn">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
